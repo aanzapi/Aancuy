@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AzX App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav>
+  <button onclick="loadPage('login')">Login</button>
+  <button onclick="loadPage('dashboard')">Dashboard</button>
+  <button onclick="loadPage('sender')">Sender</button>
+  <button onclick="loadPage('tools')">Tools</button>
+</nav>
+
+<div id="app">Loading...</div>
+
+<script>
+async function loadPage(page){
+  const res = await fetch(`pages/${page}.html`)
+  document.getElementById("app").innerHTML = await res.text()
+}
+loadPage("login") // default page
+</script>
+
+</body>
+</html>
